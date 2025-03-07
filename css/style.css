@@ -15,20 +15,19 @@ body {
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-/* 로그인 박스 스타일 */
-.login-container {   
-    
+/* 로그인 & 게시글 작성 박스 스타일 */
+.container {
     background: white;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
 }
 
 /* 제목 스타일 */
-.login-container h2 {
+.container h2 {
     margin-bottom: 1rem;
     color: #333;
 }
@@ -42,24 +41,38 @@ body {
 .input-group label {
     display: block;
     font-size: 14px;
+    font-weight: bold;
     margin-bottom: 5px;
+    color: #333;
 }
 
-.input-group input {
+.input-group input,
+.input-group textarea {
     width: 100%;
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
+    resize: none; /* textarea 크기 조절 방지 */
 }
 
-/* 로그인 버튼 스타일 */
-.login-btn {
-    width: 100%;
+/* 파일 업로드 필드 스타일 */
+.input-group input[type="file"] {
+    border: none;
+    padding: 5px;
+}
+
+/* 버튼 스타일 */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.btn {
+    width: 48%;
     padding: 10px;
-    background: #667eea;
-    color: white;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -67,8 +80,22 @@ body {
     transition: 0.3s;
 }
 
-.login-btn:hover {
+.submit-btn {
+    background: #667eea;
+    color: white;
+}
+
+.submit-btn:hover {
     background: #5563c1;
+}
+
+.cancel-btn {
+    background: #ccc;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background: #999;
 }
 
 /* 회원가입 링크 스타일 */
