@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row = $result->fetch_assoc()) {
         // 비밀번호 검증 (암호화된 해시 비교)
         if (password_verify($user_passwd, $row['user_passwd'])) {
+            $_SESSION['id'] = $row['id'];
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['name'] = $row['name'];
 

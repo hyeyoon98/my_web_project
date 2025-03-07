@@ -8,18 +8,18 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$id = $_SESSION['id'];
 
-error_log("insert mypage.php : user_id = " . $_SESSION['user_id']);
+error_log("insert mypage.php : id = " . $_SESSION['id']);
 
 // 현재 사용자 정보 가져오기
-$sql = "SELECT name, email FROM users WHERE user_id = ?";
+$sql = "SELECT name, email FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("i", $id);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 
-error_log("mypage.php query excute : name = " . $user['name']);
+error_log("mypage.php query excute : id = " . $user['id']);
 
 ?>
 
