@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssss", $name, $user_id, $hashed_password, $birth, $phone_number, $email);
 
     if ($stmt->execute()) {
-        echo "<script>alert('회원가입 성공! 로그인하세요.'); location.href='login.html';</script>";
+        echo "<script>alert('회원가입 성공! 로그인하세요.'); location.href='/webpage/login.html';</script>";
     } else {
         echo "<script>alert('회원가입 실패! 아이디가 중복되었을 수 있습니다.'); history.back();</script>";
     }
