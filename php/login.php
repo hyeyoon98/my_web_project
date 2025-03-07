@@ -27,6 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($user_passwd, $row['user_passwd'])) {
             $_SESSION['userid'] = $row['user_id'];
             $_SESSION['username'] = $row['name'];
+
+            echo "<script>alert('로그인 성공!'); location.href='board.php';</script>";
+            exit();
+
+
             header("Location: board.php"); // 로그인 성공 시 이동
             exit();
         } else {
