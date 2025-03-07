@@ -58,19 +58,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>게시글 작성</title>
 </head>
 <body>
+<div class="write-container">
     <h2>게시글 작성</h2>
-    <form action="write.php" method="post" enctype="multipart/form-data">
-        <label for="title">제목:</label>
-        <input type="text" id="title" name="title" required><br>
-
-        <label for="content">내용:</label>
-        <textarea id="content" name="content" rows="5" required></textarea><br>
-
-        <label for="upload_file">파일 업로드:</label>
-        <input type="file" id="upload_file" name="upload_file"><br>
-
-        <button type="submit">게시글 저장</button>
-        <button type="button" onclick="location.href='board.php'">취소</button>
+    <form action="write_process.php" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="input-group">
+            <label for="content">내용</label>
+            <textarea id="content" name="content" rows="5" required></textarea>
+        </div>
+        <div class="input-group">
+            <label for="upload_file">파일 업로드</label>
+            <input type="file" id="upload_file" name="upload_file">
+        </div>
+        <button type="submit" class="write-btn">게시글 작성</button>
     </form>
+</div>
 </body>
 </html>

@@ -15,19 +15,19 @@ body {
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-/* 로그인 & 게시글 작성 박스 스타일 */
-.container {
+/* 게시글 작성 컨테이너 */
+.write-container {
     background: white;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
+    text-align: center;
 }
 
 /* 제목 스타일 */
-.container h2 {
+.write-container h2 {
     margin-bottom: 1rem;
     color: #333;
 }
@@ -41,9 +41,9 @@ body {
 .input-group label {
     display: block;
     font-size: 14px;
-    font-weight: bold;
     margin-bottom: 5px;
-    color: #333;
+    font-weight: bold;
+    color: #444;
 }
 
 .input-group input,
@@ -54,25 +54,20 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    resize: none; /* textarea 크기 조절 방지 */
+    resize: none;
 }
 
-/* 파일 업로드 필드 스타일 */
+/* 파일 업로드 필드 */
 .input-group input[type="file"] {
     border: none;
-    padding: 5px;
 }
 
 /* 버튼 스타일 */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
-
-.btn {
-    width: 48%;
+.write-btn {
+    width: 100%;
     padding: 10px;
+    background: #667eea;
+    color: white;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -80,36 +75,6 @@ body {
     transition: 0.3s;
 }
 
-.submit-btn {
-    background: #667eea;
-    color: white;
-}
-
-.submit-btn:hover {
+.write-btn:hover {
     background: #5563c1;
-}
-
-.cancel-btn {
-    background: #ccc;
-    color: #333;
-}
-
-.cancel-btn:hover {
-    background: #999;
-}
-
-/* 회원가입 링크 스타일 */
-.register-link {
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.register-link a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
 }
