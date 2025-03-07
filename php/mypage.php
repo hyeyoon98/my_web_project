@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // 현재 사용자 정보 가져오기
-$sql = "SELECT name, email FROM users WHERE user_id = ?";
+$sql = "SELECT name, email FROM users WHERE user_id = ? Limit 1";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
