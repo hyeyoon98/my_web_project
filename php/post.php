@@ -5,7 +5,7 @@ include "db.php";
 $post_id = $_GET['id'];
 
 // 게시글 가져오기
-$sql = "SELECT p.id, p.title, p.content, p.created_at, u.name 
+$sql = "SELECT p.id, p.title, p.content, p.file_path, p.created_at, u.name 
         FROM posts p 
         JOIN users u ON p.user_id = u.user_id 
         WHERE p.id = ?";
@@ -37,6 +37,11 @@ $comments = $stmt->get_result();
     <h2><?php echo htmlspecialchars($post['title']); ?></h2>
     <p>작성자: <?php echo htmlspecialchars($post['name']); ?> | 작성일: <?php echo $post['created_at']; ?></p>
     <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
+
+    <?php if (!empty($post['file_path'])): ?>
+        <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download>파일 다운로드</a></p>
+    <?php endif; ?>
+
     <hr>
 
     <h3>댓글</h3>
@@ -67,9 +72,8 @@ $comments = $stmt->get_result();
 
     <hr>
 
-    <!-- 목록으로 버튼 -->
+    <!-- ✅ 목록으로 돌아가기 버튼 추가 -->
     <button onclick="location.href='board.php'">목록으로</button>
-
 
 </body>
 </html>
