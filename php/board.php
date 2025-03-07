@@ -65,8 +65,8 @@ $result = $conn->query($sql);
                 <button onclick="location.href='write.php'">글쓰기</button>
                 <button onclick="location.href='logout.php'">로그아웃</button>
             <?php else: ?>
-                <a href="login.html">로그인</a>
-                <a href="register.html">회원가입</a>
+                <a href="/login.html">로그인</a>
+                <a href="/register.html">회원가입</a>
             <?php endif; ?>
         </div>
     </div>
