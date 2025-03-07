@@ -22,5 +22,5 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssss", $user_id, $title, $content, $file_path);
 $stmt->execute();
 
-header("Location: board.html");
+header("Location: /board.html");
 ?>
