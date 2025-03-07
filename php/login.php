@@ -3,6 +3,10 @@ session_start();
 include 'db.php'; // 데이터베이스 연결
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    var_dump($_POST); // ✅ POST 데이터 확인용 (디버깅 후 삭제)
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_POST['user_id'];
     $user_passwd = $_POST['user_passwd'];
     
