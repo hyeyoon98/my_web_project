@@ -65,5 +65,11 @@ $comments = $stmt->get_result();
         <p><a href="/login.html">로그인</a> 후 댓글을 작성할 수 있습니다.</p>
     <?php endif; ?>
 
+    <hr>
+
+    <!-- 목록으로 버튼 -->
+    <button onclick="location.href='board.php'">목록으로</button>
+
+
 </body>
 </html>
