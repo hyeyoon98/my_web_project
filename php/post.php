@@ -39,7 +39,8 @@ $comments = $stmt->get_result();
     <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
 
     <?php if (!empty($post['file_path'])): ?>
-        <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download>파일 다운로드</a></p>
+        <?php $file_name = basename($post['file_path']); ?>
+        <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download><?php echo htmlspecialchars($file_name); ?></a></p>
     <?php endif; ?>
 
     <hr>
