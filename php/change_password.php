@@ -12,13 +12,13 @@ $new_password = $_POST['new_password'];
 $confirm_password = $_POST['confirm_password'];
 
 // 현재 비밀번호 확인
-$sql = "SELECT password FROM users WHERE user_id = ?";
+$sql = "SELECT user_passwd FROM users WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 
-if (!password_verify($current_password, $user['password'])) {
+if (!password_verify($current_password, $user['user_passwd'])) {
     die("<script>alert('현재 비밀번호가 틀립니다.'); history.back();</script>");
 }
 
@@ -29,7 +29,7 @@ if ($new_password !== $confirm_password) {
 
 // 새 비밀번호 해시화 후 업데이트
 $new_password_hashed = password_hash($new_password, PASSWORD_DEFAULT);
-$sql = "UPDATE users SET password = ? WHERE user_id = ?";
+$sql = "UPDATE users SET user_passwd = ? WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("si", $new_password_hashed, $user_id);
 $stmt->execute();
