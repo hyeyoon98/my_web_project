@@ -28,6 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['name'] = $row['name'];
 
+            error_log("로그인 성공: user_id = " . $_SESSION['user_id']);
+
             echo "<script>alert('로그인 성공!'); location.href='board.php';</script>";
             exit();
 
