@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-error_log("마이페이지 진입 : user_id = " . $_SESSION['user_id']);
+error_log("insert mypage.php : user_id = " . $_SESSION['user_id']);
 
 // 현재 사용자 정보 가져오기
 $sql = "SELECT name, email FROM users WHERE user_id = ?";
@@ -19,7 +19,7 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 
-error_log("마이페이지 쿼리 실행 결과(이름) : name = " . $user['name']);
+error_log("mypage.php query excute : name = " . $user['name']);
 
 ?>
 
