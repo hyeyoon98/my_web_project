@@ -61,7 +61,9 @@ $result = $conn->query($sql);
         <h1>자유게시판</h1>
         <div class="buttons">
             <?php if (isset($_SESSION['user_id'])): ?>
-                <span style="color:white;">안녕하세요, <?php echo htmlspecialchars($_SESSION['name']); ?>님!</span>
+                <a href="mypage.php" style="color:white; text-decoration: none;">
+                    안녕하세요, <?php echo htmlspecialchars($_SESSION['name']); ?>님!
+                </a>
                 <button onclick="location.href='write.php'">글쓰기</button>
                 <button onclick="location.href='logout.php'">로그아웃</button>
             <?php else: ?>
