@@ -62,7 +62,7 @@ $comments = $stmt->get_result();
             <button type="submit">댓글 작성</button>
         </form>
     <?php else: ?>
-        <p><a href="login.html">로그인</a> 후 댓글을 작성할 수 있습니다.</p>
+        <p><a href="/login.html">로그인</a> 후 댓글을 작성할 수 있습니다.</p>
     <?php endif; ?>
 
 </body>
