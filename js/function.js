@@ -2,12 +2,12 @@ function validateForm() {
     let isValid = true;
 
     // 입력 필드 가져오기
-    let username = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
+    let username = document.getElementById("user_id").value.trim();
+    let password = document.getElementById("user_passwd").value.trim();
 
     // 오류 메시지 요소 가져오기
-    let usernameError = document.getElementById("username-error");
-    let passwordError = document.getElementById("password-error");
+    let usernameError = document.getElementById("user_id-error");
+    let passwordError = document.getElementById("user_passwd-error");
 
     // 오류 메시지 초기화
     usernameError.innerText = "";
