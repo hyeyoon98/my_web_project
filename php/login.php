@@ -30,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['name'] = $row['name'];
             $_SESSION['role'] = $row['role'];
 
+            var_dump($_SESSION['role']); // role 값 확인
+
             error_log("login complete : user_id = " . $_SESSION['user_id']);
 
             echo "<script>alert('로그인 성공!'); location.href='board.php';</script>";
