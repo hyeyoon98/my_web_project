@@ -29,9 +29,6 @@ $comments = $stmt->get_result();
 $is_owner = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['user_id'];
 $is_admin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 
-var_dump($_SESSION['role']); // role 값 확인
-var_dump($is_admin); // admin 여부 확인
-
 ?>
 
 <!DOCTYPE html>
