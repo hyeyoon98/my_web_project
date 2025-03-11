@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id'] = $row['id'];
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['name'] = $row['name'];
+            $_SESSION['role'] = $row['role'];
 
             error_log("login complete : user_id = " . $_SESSION['user_id']);
 
