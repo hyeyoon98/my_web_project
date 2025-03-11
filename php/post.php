@@ -51,9 +51,12 @@ var_dump($is_admin); // admin 여부 확인
         <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download><?php echo htmlspecialchars($file_name); ?></a></p>
     <?php endif; ?>
 
+    <?php if ($is_owner): ?>
+        <button onclick="location.href='edit_post.php?id=<?php echo $post_id; ?>'">수정</button>
+    <?php endif; ?>
+
     <!-- 수정 및 삭제 버튼 (본인 또는 관리자) -->
     <?php if ($is_owner || $is_admin): ?>
-        <button onclick="location.href='edit_post.php?id=<?php echo $post_id; ?>'">수정</button>
         <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_post.php?id=<?php echo $post_id; ?>'">삭제</button>
     <?php endif; ?>
 
