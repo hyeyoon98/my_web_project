@@ -47,6 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>내용: <textarea name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea></label><br>
         <button type="submit">수정 완료</button>
     </form>
-    <button onclick="location.href='post_view.php?id=<?php echo $post_id; ?>'">취소</button>
+    <button onclick="location.href='post.php?id=<?php echo $post_id; ?>'">취소</button>
 </body>
 </html>
