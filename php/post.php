@@ -24,6 +24,11 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $post_id);
 $stmt->execute();
 $comments = $stmt->get_result();
+
+// 로그인한 사용자 정보
+$is_owner = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['user_id'];
+$is_admin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +46,12 @@ $comments = $stmt->get_result();
     <?php if (!empty($post['file_path'])): ?>
         <?php $file_name = basename($post['file_path']); ?>
         <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download><?php echo htmlspecialchars($file_name); ?></a></p>
+    <?php endif; ?>
+
+    <!-- 수정 및 삭제 버튼 (본인 또는 관리자) -->
+    <?php if ($is_owner || $is_admin): ?>
+        <button onclick="location.href='edit_post.php?id=<?php echo $post_id; ?>'">수정</button>
+        <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_post.php?id=<?php echo $post_id; ?>'">삭제</button>
     <?php endif; ?>
 
     <hr>

@@ -10,7 +10,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $id = $_SESSION['id'];
 
-error_log("insert mypage.php : id = " . $_SESSION['id']);
 
 // 현재 사용자 정보 가져오기
 $sql = "SELECT name, email FROM users WHERE id = ?";
@@ -19,7 +18,6 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 
-error_log("mypage.php query excute : id = " . $user['id']);
 
 ?>
 
