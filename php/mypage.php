@@ -78,7 +78,7 @@ $user = $stmt->get_result()->fetch_assoc();
         </form>
 
         <h3>회원 탈퇴</h3>
-        <form action="delete_account.php" method="POST">
+        <form action="delete_account.php" method="GET">
             <button type="submit" onclick="return confirm('정말 탈퇴하시겠습니까?')">회원 탈퇴</button>
         </form>
         

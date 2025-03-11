@@ -6,6 +6,7 @@ if (!isset($_GET['id'])) {
     die("잘못된 접근입니다.");
 }
 $post_id = $_GET['id'];
+$user_id = $_SESSION['user_id'];
 
 // 게시글 조회
 $sql = "SELECT user_id FROM posts WHERE id = ?";
@@ -24,10 +25,11 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $post['user_id'] &&
     die("권한이 없습니다.");
 }
 
+
 // 삭제 실행
-$sql = "DELETE FROM posts WHERE id = ?";
+$sql = "DELETE FROM posts WHERE id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $post_id);
+$stmt->bind_param("i", $post_id, $user_id);
 $stmt->execute();
 
 header("Location: board.php");
