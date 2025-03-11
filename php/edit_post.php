@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssi", $title, $content, $post_id);
     $stmt->execute();
     
-    header("Location: post_view.php?id=$post_id");
+    header("Location: post.php?id=$post_id");
     exit;
 }
 ?>
