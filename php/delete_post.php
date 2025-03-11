@@ -29,7 +29,7 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $post['user_id'] &&
 // 삭제 실행
 $sql = "DELETE FROM posts WHERE id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $post_id, $user_id);
+$stmt->bind_param("ii", $post_id, $user_id);
 $stmt->execute();
 
 header("Location: board.php");
