@@ -5,7 +5,7 @@ include "db.php";
 $post_id = $_GET['id'];
 
 // 게시글 가져오기
-$sql = "SELECT p.id, p.title, p.content, p.file_path, p.created_at, u.name 
+$sql = "SELECT p.id, p.title, p.content, p.file_path, p.created_at, p.user_id, u.name 
         FROM posts p 
         JOIN users u ON p.user_id = u.user_id 
         WHERE p.id = ?";
