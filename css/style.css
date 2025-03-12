@@ -6,14 +6,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* 전체 페이지 스타일 */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-}
-
 /* 네비게이션 바 */
 .navbar {
     background-color: #007bff;
@@ -180,7 +172,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 3rem; /* 여백 더 늘림 */
+    padding: 3rem; 
 }
 
 /* 카드형 게시글 스타일 */
@@ -190,7 +182,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     width: 90%;
-    max-width: 900px; /* 더 넓게 조정 */
+    max-width: 900px; 
     margin-top: 2rem;
 }
 
