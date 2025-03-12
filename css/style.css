@@ -6,6 +6,17 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* 전체 배경 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
 /* 네비게이션 바 */
 .navbar {
     background-color: #007bff;
