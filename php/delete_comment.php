@@ -13,7 +13,7 @@ $stmt->execute();
 $comment = $stmt->get_result()->fetch_assoc();
 
 // 로그인한 사용자만 삭제 가능
-if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $post['user_id'] && $_SESSION['role'] !== 'admin')) {
+if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $comment['user_id'] && $_SESSION['role'] !== 'admin')) {
     echo "<script>alert('권한이 없습니다.'); history.back();</script>";
     exit;
 }

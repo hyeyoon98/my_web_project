@@ -16,7 +16,7 @@ $stmt->execute();
 $post = $stmt->get_result()->fetch_assoc();
 
 // 권한 체크 (본인만 수정 가능)
-if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $comment['user_id']) {
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $post['user_id']) {
     die("권한이 없습니다.");
 }
 
