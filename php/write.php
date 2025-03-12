@@ -29,8 +29,8 @@ if (!isset($_SESSION['user_id'])) {
             <label for="upload_file">파일 업로드</label>
             <input type="file" id="upload_file" name="upload_file">
 
-            <button type="submit">게시글 등록</button>
         </div>
+        <button type="submit">게시글 등록</button>
     </form>
     <button onclick="location.href='board.php'">취소</button>
 </div>
