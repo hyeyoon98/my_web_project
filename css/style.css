@@ -278,96 +278,8 @@
     margin-top: 30px;
 }
 
-/* 로그인 컨테이너 스타일 */
-.login-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-}
-
-/* 로그인 헤더 스타일 */
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-/* 입력 그룹 스타일 */
-.input-group {
-    margin-bottom: 20px;
-}
-
-/* 레이블 스타일 */
-label {
-    display: block;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-/* 입력 필드 스타일 */
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-/* 입력 필드 포커스 상태 */
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #4CAF50;
-}
-
-/* 오류 메시지 스타일 */
-.error-message {
-    color: red;
-    font-size: 12px;
-    display: none;
-}
-
-/* 로그인 버튼 스타일 */
-.login-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.login-btn:hover {
-    background-color: #45a049;
-}
-
-/* 회원가입 링크 스타일 */
-.register-link {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.register-link a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
-}
-
-.register-container {
+/* 회원가입 페이지 스타일 */
+body.register-page .register-container {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
@@ -376,7 +288,17 @@ input[type="password"]:focus {
     max-width: 500px;
 }
 
-/* 회원가입 헤더 스타일 */
+/* 로그인 페이지 스타일 */
+body.login-page .login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* 공통 스타일 */
 h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -384,12 +306,10 @@ h2 {
     color: #333;
 }
 
-/* 입력 그룹 스타일 */
 .input-group {
     margin-bottom: 20px;
 }
 
-/* 레이블 스타일 */
 label {
     display: block;
     font-size: 14px;
@@ -397,7 +317,6 @@ label {
     margin-bottom: 8px;
 }
 
-/* 입력 필드 스타일 */
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -411,7 +330,6 @@ input[type="date"] {
     transition: border-color 0.3s;
 }
 
-/* 입력 필드 포커스 상태 */
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -419,7 +337,6 @@ input[type="date"]:focus {
     border-color: #4CAF50;
 }
 
-/* 오류 메시지 스타일 */
 .error-message {
     color: red;
     font-size: 12px;
@@ -427,7 +344,7 @@ input[type="date"]:focus {
 }
 
 /* 회원가입 버튼 스타일 */
-.register-btn {
+body.register-page .register-btn {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -439,22 +356,49 @@ input[type="date"]:focus {
     transition: background-color 0.3s;
 }
 
-.register-btn:hover {
+body.register-page .register-btn:hover {
     background-color: #45a049;
 }
 
-/* 로그인 링크 스타일 */
-.login-link {
+/* 로그인 버튼 스타일 */
+body.login-page .login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+body.login-page .login-btn:hover {
+    background-color: #45a049;
+}
+
+/* 링크 스타일 */
+body.register-page .login-link,
+body.login-page .register-link {
     text-align: center;
     margin-top: 15px;
     font-size: 14px;
 }
 
-.login-link a {
+body.register-page .login-link a,
+body.login-page .register-link a {
     color: #4CAF50;
     text-decoration: none;
 }
 
-.login-link a:hover {
+body.register-page .login-link a:hover,
+body.login-page .register-link a:hover {
     text-decoration: underline;
 }
+
+
+
+
+
+
+
