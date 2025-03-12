@@ -22,6 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    if (empty($name) || empty($user_id) || empty($user_passwd) || empty($birth) || empty($phone_number) || empty($email)) { 
+        echo "<script>alert('모든 내용을 입력하세요.'); history.back();</script>";
+        exit();
+    }
+
     $hashed_password = password_hash($user_passwd, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (name, user_id, user_passwd, birth, phone_number, email) VALUES (?, ?, ?, ?, ?, ?)";
