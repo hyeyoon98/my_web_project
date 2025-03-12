@@ -279,8 +279,16 @@
     margin-top: 30px;
 }
 
-body.login-page body.register-page {
-    
+body.login-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body.register-page {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
@@ -297,12 +305,6 @@ body.register-page .register-container {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 /* 로그인 페이지 스타일 */
