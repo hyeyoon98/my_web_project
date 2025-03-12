@@ -36,61 +36,61 @@ $is_admin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
     <title><?php echo htmlspecialchars($post['title']); ?></title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-    <p>작성자: <?php echo htmlspecialchars($post['name']); ?> | 작성일: <?php echo $post['created_at']; ?></p>
-    <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
+    <div class="post-container">
+        <div class="post-content">
+            <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+            <p class="post-info">작성자: <?php echo htmlspecialchars($post['name']); ?> | 작성일: <?php echo $post['created_at']; ?></p>
+            <p class="post-text"><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
 
-    <?php if (!empty($post['file_path'])): ?>
-        <?php $file_name = basename($post['file_path']); ?>
-        <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download><?php echo htmlspecialchars($file_name); ?></a></p>
-    <?php endif; ?>
-
-    <!-- 수정 버튼 (본인) -->
-    <?php if ($is_owner): ?>
-        <button onclick="location.href='edit_post.php?id=<?php echo $post_id; ?>'">수정</button>
-    <?php endif; ?>
-
-    <!-- 삭제 버튼 (본인 또는 관리자) -->
-    <?php if ($is_owner || $is_admin): ?>
-        <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_post.php?id=<?php echo $post_id; ?>'">삭제</button>
-    <?php endif; ?>
-
-    <hr>
-
-    <h3>댓글</h3>
-    <?php while ($row = $comments->fetch_assoc()): ?>
-        <div>
-            <p><b><?php echo htmlspecialchars($row['name']); ?></b>: <?php echo nl2br(htmlspecialchars($row['comment_text'])); ?></p>
-            <p>작성일: <?php echo $row['created_at']; ?></p>
-
-            <!-- 로그인한 사용자가 댓글 작성자일 경우에만 수정/삭제 버튼 표시 -->
-            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $row['user_id']): ?>
-                <button onclick="location.href='edit_comment.php?id=<?php echo $row['id']; ?>'">수정</button>
-                <button onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_comment.php?id=<?php echo $row['id']; ?>'">삭제</button>
+            <?php if (!empty($post['file_path'])): ?>
+                <?php $file_name = basename($post['file_path']); ?>
+                <p>첨부파일: <a href="<?php echo htmlspecialchars($post['file_path']); ?>" download><?php echo htmlspecialchars($file_name); ?></a></p>
             <?php endif; ?>
-            <hr>
+
+            <?php if ($is_owner): ?>
+                <button onclick="location.href='edit_post.php?id=<?php echo $post_id; ?>'">수정</button>
+            <?php endif; ?>
+
+            <?php if ($is_owner || $is_admin): ?>
+                <button class="delete" onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_post.php?id=<?php echo $post_id; ?>'">삭제</button>
+            <?php endif; ?>
         </div>
-    <?php endwhile; ?>
 
-    <!-- 댓글 입력 -->
-    <?php if (isset($_SESSION['user_id'])): ?>
-        <form action="add_comment.php" method="POST">
-            <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-            <textarea name="comment_text" required></textarea>
-            <button type="submit">댓글 작성</button>
-        </form>
-    <?php else: ?>
-        <p><a href="/login.html">로그인</a> 후 댓글을 작성할 수 있습니다.</p>
-    <?php endif; ?>
+        <hr>
 
-    <hr>
+        <div class="comment-container">
+            <h3>댓글</h3>
+            <?php while ($row = $comments->fetch_assoc()): ?>
+                <div class="comment">
+                    <p><b><?php echo htmlspecialchars($row['name']); ?></b>: <?php echo nl2br(htmlspecialchars($row['comment_text'])); ?></p>
+                    <p>작성일: <?php echo $row['created_at']; ?></p>
 
-    <!-- ✅ 목록으로 돌아가기 버튼 추가 -->
-    <button onclick="location.href='board.php'">목록으로</button>
+                    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $row['user_id']): ?>
+                        <button onclick="location.href='edit_comment.php?id=<?php echo $row['id']; ?>'">수정</button>
+                        <button class="delete" onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_comment.php?id=<?php echo $row['id']; ?>'">삭제</button>
+                    <?php endif; ?>
+                </div>
+            <?php endwhile; ?>
+        </div>
 
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <form action="add_comment.php" method="POST">
+                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                <textarea name="comment_text" required></textarea>
+                <button type="submit">댓글 작성</button>
+            </form>
+        <?php else: ?>
+            <p><a href="/login.html">로그인</a> 후 댓글을 작성할 수 있습니다.</p>
+        <?php endif; ?>
+
+        <hr>
+
+        <button class="back-button" onclick="location.href='board.php'">목록으로</button>
+    </div>
 </body>
+
 </html>
