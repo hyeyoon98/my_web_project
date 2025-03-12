@@ -8,12 +8,105 @@
 
 /* 전체 페이지 스타일 */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
 }
+
+/* 네비게이션 바 */
+.navbar {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.navbar .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar .buttons a,
+.navbar .buttons button {
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.navbar .buttons button {
+    background-color: #0056b3;
+    border-radius: 5px;
+}
+
+.navbar .buttons button:hover {
+    background-color: #003d80;
+}
+
+.navbar .buttons a:hover {
+    text-decoration: underline;
+}
+
+/* 게시글 목록 컨테이너 */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 게시글 목록 제목 */
+.container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 1.5rem;
+}
+
+/* 개별 게시글 스타일 */
+.container div {
+    padding: 1.2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.container div:last-child {
+    border-bottom: none;
+}
+
+.container h3 {
+    margin: 0;
+}
+
+.container h3 a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 20px;
+}
+
+.container h3 a:hover {
+    text-decoration: underline;
+}
+
+.container p {
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 
 /* 게시글 작성 컨테이너 */
 .write-container {
@@ -87,17 +180,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2rem;
+    padding: 3rem; /* 여백 더 늘림 */
 }
 
 /* 카드형 게시글 스타일 */
 .post-container .post-content {
     background: white;
-    padding: 2rem;
+    padding: 3rem; /* 내부 여백 증가 */
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     width: 90%;
-    max-width: 700px;
+    max-width: 900px; /* 더 넓게 조정 */
     margin-top: 2rem;
 }
 
@@ -105,20 +198,22 @@ body {
 .post-container h2 {
     text-align: center;
     color: #333;
+    font-size: 28px; /* 글씨 크기 키움 */
+    margin-bottom: 1.5rem;
 }
 
 /* 작성자 및 날짜 정보 */
 .post-container .post-info {
     color: #666;
-    font-size: 14px;
-    margin-bottom: 1rem;
+    font-size: 16px;
+    margin-bottom: 1.5rem;
 }
 
 /* 본문 내용 */
 .post-container .post-text {
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 1rem 0;
+    font-size: 18px; /* 글자 크기 키움 */
+    line-height: 1.8; /* 줄 간격 조정 */
+    margin: 2rem 0;
     color: #444;
 }
 
@@ -127,11 +222,11 @@ body {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 18px; /* 버튼 크기 증가 */
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
-    margin: 5px;
+    font-size: 16px;
+    margin: 10px;
 }
 
 .post-container button:hover {
@@ -149,28 +244,33 @@ body {
 
 /* 댓글 컨테이너 */
 .post-container .comment-container {
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 900px; /* 댓글 영역도 넓게 */
 }
 
 /* 댓글 박스 */
 .post-container .comment {
     background: #f1f1f1;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* 댓글 입력 폼 */
 .post-container form {
     margin-top: 20px;
+    width: 90%;
+    max-width: 900px;
 }
 
 .post-container textarea {
     width: 100%;
-    height: 80px;
-    padding: 10px;
+    height: 100px; /* 입력창 크기 증가 */
+    padding: 12px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
     resize: none;
 }
 
@@ -183,5 +283,5 @@ body {
 .post-container .back-button {
     display: block;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }

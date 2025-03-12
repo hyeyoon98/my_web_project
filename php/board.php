@@ -16,44 +16,8 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자유게시판</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
-        }
-        .navbar h1 {
-            color: white;
-            margin: 0;
-        }
-        .navbar .buttons {
-            display: flex;
-            gap: 10px;
-        }
-        .navbar a, .navbar button {
-            text-decoration: none;
-            color: white;
-            background-color: #555;
-            padding: 8px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-        .navbar a:hover, .navbar button:hover {
-            background-color: #777;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/style.css">
+        
 </head>
 <body>
 
