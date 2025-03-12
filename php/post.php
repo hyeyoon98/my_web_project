@@ -70,7 +70,9 @@ $is_admin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                     <p>작성일: <?php echo $row['created_at']; ?></p>
 
                     <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $row['user_id']): ?>
-                        <button onclick="location.href='edit_comment.php?id=<?php echo $row['id']; ?>'">수정</button>
+                        <button onclick="location.href='edit_comment.php?id=<?php echo $row['id']; ?>'">수정</button>                     
+                    <?php endif; ?>
+                    <?php if ($is_owner || $is_admin): ?>
                         <button class="delete" onclick="if(confirm('정말 삭제하시겠습니까?')) location.href='delete_comment.php?id=<?php echo $row['id']; ?>'">삭제</button>
                     <?php endif; ?>
                 </div>
