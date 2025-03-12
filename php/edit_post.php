@@ -39,14 +39,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>게시글 수정</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h2>게시글 수정</h2>
-    <form method="POST">
-        <label>제목: <input type="text" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required></label><br>
-        <label>내용: <textarea name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea></label><br>
-        <button type="submit">수정 완료</button>
-    </form>
-    <button onclick="location.href='post.php?id=<?php echo $post_id; ?>'">취소</button>
+    <div class="container">
+        <h2>게시글 수정</h2>
+        <form method="POST">
+            <div class="input-group">
+                <label for="title">제목: <input type="text" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required></label><br>
+                <label for="content">내용: <textarea name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea></label><br>
+            </div>
+            <button type="submit">수정 완료</button>
+        </form>
+        <button onclick="location.href='post.php?id=<?php echo $post_id; ?>'">취소</button>
+    </div>
 </body>
 </html>
