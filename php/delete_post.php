@@ -21,7 +21,7 @@ if ($result->num_rows === 0) {
 $post = $result->fetch_assoc();
 
 // 권한 체크 (본인 또는 관리자만 삭제 가능)
-if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $result['user_id'] && $_SESSION['role'] !== 'admin')) {
+if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $post['user_id'] && $_SESSION['role'] !== 'admin')) {
     die("권한이 없습니다.");
 }
 
@@ -29,7 +29,7 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['user_id'] != $result['user_id'] 
 // 삭제 실행
 $sql = "DELETE FROM posts WHERE id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ii", $post_id, $user_id);
+$stmt->bind_param("ii", $post_id, $post['user_id']);
 $stmt->execute();
 
 header("Location: board.php");
