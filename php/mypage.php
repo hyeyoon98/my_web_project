@@ -12,7 +12,7 @@ $id = $_SESSION['id'];
 
 
 // 현재 사용자 정보 가져오기
-$sql = "SELECT name, email FROM users WHERE id = ?";
+$sql = "SELECT * FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -67,6 +67,9 @@ $user = $stmt->get_result()->fetch_assoc();
     <div class="container">
         <h2>마이페이지</h2>
         <p>이름: <?php echo htmlspecialchars($user['name']); ?></p>
+        <p>아이디: <?php echo htmlspecialchars($user['user_id']); ?></p>
+        <p>생년월일: <?php echo htmlspecialchars($user['birth']); ?></p>
+        <p>연락처: <?php echo htmlspecialchars($user['phone_number']); ?></p>
         <p>이메일: <?php echo htmlspecialchars($user['email']); ?></p>
 
         <h3>비밀번호 변경</h3>
